@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETA AGENCY - Digital Creative</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #6B9BD2;
+            --primary-blue-dark: #5A8AB8;
+            --primary-blue-darker: #4A7496;
+            --primary-blue-light: #8BB5E3;
+            --bg-blue-dark: #7A9FC4;
+            --bg-blue-darker: #5A7A96;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #7A9FC4 0%, #6B9BD2 50%, #8BB5E3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(107, 155, 210, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 181, 227, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(90, 138, 184, 0.15) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            background: rgba(122, 159, 196, 0.3);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 24px;
+            padding: 30px 25px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.35));
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            padding: 16px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .link-item-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+        }
+
+        .link-item-icon {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-item-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .link-item-text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.35);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .link-item:active {
+            transform: translateY(0);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+            margin-bottom: 25px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            object-fit: cover;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-brand {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+                padding-top: 20px;
+            }
+
+            .container {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+
+            .logo {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 6px;
+            }
+
+            .brand-name {
+                font-size: 18px;
+            }
+
+            .link-item {
+                padding: 14px 18px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="PETA AGENCY Logo" class="logo-img" id="logoImg">
+            </div>
+            <div class="brand-name">PETA</div>
+            <div class="brand-tagline">AGENCY DIGITAL CREATIVE</div>
+        </div>
+
+        <div class="links" id="linksContainer">
+            <!-- Links and gallery will be generated by JavaScript -->
+        </div>
+
+        <div class="footer">
+            <div class="footer-brand">PETA AGENCY - Digital Creative</div>
+        </div>
+    </div>
+
+    <script>
+        // Ganti dengan data Anda
+        const profileData = {
+            links: [
+                { text: "Our Rate Card", url: "https://wa.me/6281234567890", icon: "wa.svg" },
+                { text: "Portfolio", url: "https://yourportfolio.com", icon: "work.svg" },
+                { text: "Browse Instagram", url: "https://instagram.com/username", icon: "ig.svg", hasGallery: true }
+            ],
+            gallery: [
+                { image: "1.jpg", url: "https://instagram.com/username" },
+                { image: "2.jpg", url: "https://instagram.com/username" },
+                { image: "3.jpg", url: "https://instagram.com/username" }
+            ]
+        };
+
+        // Update links and gallery
+        const linksContainer = document.getElementById('linksContainer');
+        let htmlContent = '';
+        
+        profileData.links.forEach(link => {
+            htmlContent += `<a href="${link.url}" class="link-item" target="_blank">
+                <div class="link-item-content">
+                    <div class="link-item-icon">
+                        <img src="${link.icon}" alt="${link.text} icon">
+                    </div>
+                    <div class="link-item-text">${link.text}</div>
+                </div>
+            </a>`;
+            
+            // Add gallery after Browse Instagram
+            if (link.hasGallery && profileData.gallery && profileData.gallery.length > 0) {
+                htmlContent += `<div class="gallery">
+                    ${profileData.gallery.map(item => 
+                        `<img src="${item.image}" alt="Gallery" class="gallery-item" onclick="window.open('${item.url}', '_blank')">`
+                    ).join('')}
+                </div>`;
+            }
+        });
+        
+        linksContainer.innerHTML = htmlContent;
+    </script>
+</body>
+</html>
